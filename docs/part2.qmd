@@ -1,0 +1,34 @@
+```         
+title: "Part 2"
+format: html
+```
+
+## Part 2 
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(here)
+```
+
+```{r}
+toolik_biochem <- read_csv(here("data","2011_Kling_Akchem.csv"), na = c(".")) %>% clean_names()
+
+```
+
+```{r}
+inlet_biochem <- dplyr::select(toolik_biochem,p_h,doc_u_m,tdn_u_m)
+
+# Find the mean 3 different ways
+
+apply(inlet_biochem,2,mean, na.rm = TRUE)
+
+summarize(inlet_biochem,across(all_of(cols)),mean)
+
+
+for (i in seq_along(inlet_biochem)){
+  inlet_mean <- mean(inlet_biochem[[i]], na.rm = TRUE)
+  print(inlet_mean)
+}
+
+```

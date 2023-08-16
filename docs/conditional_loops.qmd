@@ -81,5 +81,3 @@ for (i in seq_along(month.name)) {
   print(paste(month.name[i], "is month", i))
 }
 ```
-
-### Part 2
