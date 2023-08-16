@@ -1,0 +1,85 @@
+---
+title: "part1"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+```
+
+## Part 1
+
+Task 1
+
+```{r}
+pm2_5 <- 150
+
+if (pm2_5 < 100){
+  print("Low to moderate risk")
+} else if (pm2_5 >= 100 & pm2_5 < 150){
+  print("Unhealthy for sensitive groups")
+} else{
+  print("Health risk present")
+}
+```
+
+Task 2
+
+```{r}
+species = "blue whale"
+
+if (str_detect(species,"whale")){
+  print("You found a whale!")
+}
+```
+
+Task 3
+
+```{r}
+base_burrito <- 6.50
+main_ingredient <- "steak"
+
+if(str_detect(main_ingredient,"veggie")){
+  price = base_burrito
+  paste("Price:", price)
+} else if (str_detect(main_ingredient, "chicken")){
+  price = base_burrito + 3
+  paste("Price:",price)
+} else if (str_detect(main_ingredient, "steak")){
+  price = base_burrito +3.25
+  paste("Price:", price)
+}
+
+
+
+switch(main_ingredient,
+       "veggie" = paste("Price:",base_burrito),
+       "chicken" = paste("Price:",base_burrito + 3),
+       "steak" = paste("Price:",base_burrito + 3.25))
+
+```
+
+## For loops
+
+Task 4
+
+```{r}
+fish <- c(goldfish = 8, tetras = 10, 
+          guppies = 12, mollies = 23)
+
+for (i in seq_along(fish)){
+  fish_proportion = fish[i]/sum(fish)
+  print(fish_proportion)
+}
+```
+
+Task 5
+
+```{r}
+for (i in seq_along(month.name)) {
+  print(paste(month.name[i], "is month", i))
+}
+```
+
+### Part 2
